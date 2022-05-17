@@ -48,6 +48,14 @@
   margin-bottom: 10px;
   cursor: pointer;
 }
+.card:hover{
+  transform: scale(1.1);
+  z-index: 1;
+}
+.new-product {
+  font-size: 11px;
+  height: 20px;
+}
 .search-box input{
   border:none;
   margin-left:5px;

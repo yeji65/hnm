@@ -7,7 +7,7 @@ const ProductDetail = () => {
   let{id} = useParams()
   const [product,setProduct] = useState(null)
   const getProductDetail = async()=>{
-    let url = `https://my-json-server.typicode.com/yeji65/hnm/products/${id}`
+    let url = `http://localhost:5000/products/${id}`
     let response = await fetch(url)
     let data = await response.json()
     console.log(data)
@@ -25,7 +25,7 @@ const ProductDetail = () => {
           <Col>
             <div className="product-info">{product?.title}</div>
             <div className="product-info">₩{product?.price}</div>
-            <div className="choice">{product.choice ? "Conscious choice" : ""}</div>
+            <div className="choice">{product && product.choice?"Conscious choice":""}</div>
             
             <Dropdown className="drop-down">
               <Dropdown.Toggle variant="outline-dar" id="dropdown-basic">
