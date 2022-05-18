@@ -3,8 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom" ;
+import { useSelector } from "react-redux";
 
-const Navbar = ({authenticate,setAuthenticate}) => {
+const Navbar = () => {
+    const authenticate = useSelector((state) => state.auth.authenticate);
     const navigate = useNavigate()
     const goToLogin = ()=> {
         navigate("/login")
@@ -27,7 +29,7 @@ const Navbar = ({authenticate,setAuthenticate}) => {
     <div>
         <div className="login-button">
             {authenticate?(
-            <div onClick={()=>setAuthenticate(false)}>
+            <div onClick={()=>authenticate(false)}>
                 <FontAwesomeIcon icon={faUser} />
                 <span>로그아웃</span>
             </div>):(
